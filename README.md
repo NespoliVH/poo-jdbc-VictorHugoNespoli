@@ -23,7 +23,7 @@ javac -version
 mvn -version
 ```
 
-O projeto usa JDBC diretamente: não utiliza Spring, JPA ou Hibernate.
+O projeto usa JDBC diretamente:
 
 ## 2. Organização
 
@@ -247,64 +247,3 @@ FROM jogo j
 INNER JOIN desenvolvedora d ON d.id = j.desenvolvedora_id
 ORDER BY j.id;
 ```
-
-## 8. Correspondência com os critérios de avaliação
-
-| Critério | Implementação |
-|---|---|
-| Modelagem OO — 2,0 | Atributos privados, construtores, getters/setters, `toString()` e referência ao pai. |
-| Persistência JDBC — 3,0 | CRUD das duas entidades, parâmetros, chaves geradas, JOIN e fechamento de recursos. |
-| Integridade — 1,0 | `PRIMARY KEY`, `FOREIGN KEY`, `NOT NULL`, tipos e `ON DELETE RESTRICT`. |
-| Organização e qualidade — 3,0 | Pacotes separados, validações e tratamento de `SQLException`. |
-| GitHub e boas práticas — 1,0 | `.gitignore` e README preparados; criar o repositório e enviar seu link. |
-
-## 9. Publicar no GitHub e entregar
-
-1. Crie um repositório vazio chamado `poo-jdbc-victor-hugo` no GitHub, na conta
-   do aluno. Não inicialize outro README ou `.gitignore` pelo site.
-2. Na pasta do projeto, execute os comandos abaixo. Substitua `SEU_USUARIO`
-   pelo nome da conta correta.
-
-```bash
-git init -b main
-git add .
-git status
-git commit -m "Implementa loja de jogos com POO, JDBC e PostgreSQL"
-git remote add origin https://github.com/SEU_USUARIO/poo-jdbc-victor-hugo.git
-git push -u origin main
-```
-
-Se o Git solicitar nome e e-mail para o commit, configure os dados do aluno.
-Na saída de `git status`, `database.properties` e `target/` não devem aparecer
-entre os arquivos adicionados. O arquivo `database.properties.example` deve aparecer.
-
-3. Confira se o código, os scripts e este README estão visíveis no GitHub.
-4. Garanta que o professor tenha acesso ao repositório.
-5. Envie ao professor o link real do repositório criado.
-
-Este pacote contém os arquivos para publicação. A criação do repositório remoto
-e o envio do link ao professor ainda precisam ser realizados.
-
-## 10. Problemas comuns
-
-| Mensagem/situação | O que conferir |
-|---|---|
-| `mvn` ou `javac` não encontrado | Instalação do Maven/JDK e configuração do `PATH`. |
-| `release version 17 not supported` | O JDK que aparece em `mvn -version` deve ser 17 ou superior. |
-| Driver não encontrado | Execute pelo Maven ou importe corretamente as dependências na IDE. |
-| Configuração de senha ausente | Crie `database.properties` ou defina `DB_PASSWORD`. |
-| Conexão recusada | Serviço PostgreSQL, host e porta da URL. |
-| Autenticação falhou | Usuário e senha locais. |
-| Banco não existe | Execute `01_criar_banco.sql` ou ajuste `db.url`. |
-| Relação/tabela não existe | Execute `02_criar_tabelas.sql` no banco indicado na URL. |
-| Tabela já existe ao executar o SQL | Não repita o DDL; use a estrutura existente se for a mesma. |
-| Bloqueio por chave estrangeira na etapa 6 | É esperado e comprova a integridade referencial. |
-
-## 11. Referências
-
-- [Driver JDBC PostgreSQL — download](https://jdbc.postgresql.org/download/)
-- [Inicialização e conexão com o pgJDBC](https://jdbc.postgresql.org/documentation/use/)
-- [Restrições e chaves estrangeiras no PostgreSQL](https://www.postgresql.org/docs/18/ddl-constraints.html)
-- [Códigos de erro SQLState do PostgreSQL](https://www.postgresql.org/docs/18/errcodes-appendix.html)
-
-Consulte `VALIDACAO.md` para o registro dos testes realizados durante a preparação.

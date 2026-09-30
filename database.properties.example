@@ -1,0 +1,5 @@
+# Copie este arquivo para database.properties e preencha a senha local.
+# Execute os comandos Maven a partir da pasta que contém este arquivo.
+db.url=jdbc:postgresql://localhost:5432/poo_exercicios
+db.user=postgres
+db.password=SUA_SENHA_DO_POSTGRESQL
